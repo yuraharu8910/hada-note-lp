@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 架空サロンの制作物のため、検索結果への登録とリンクの追跡をしないよう指定する -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- hada note（架空のフェイシャルサロン）LP｜デザイン：案D（白地＋漂う色の玉・縦書き・明朝） -->
+  <title>hada note（はだノート）｜売り込まれずに、肌の理由がわかる。40代の肌のかかりつけサロン</title>
+  <meta name="description" content="ハリ不足や疲れ顔が気になる40代へ。質問に答えるだけの無料「AI肌カルテ」で、今のケア・暮らし・気持ち・季節のつながりから今の肌調子の理由がわかります。回数券・化粧品の勧誘なし。初回体験60分5,500円（税込）。">
+  <!-- canonical・og:url・og:image は、SNSや検索エンジンが読むので「https://〜」から始まる完全なURLで書く
+       （ページ内の画像やCSSの読み込みは相対パスのまま） -->
+  <link rel="canonical" href="https://yuraharu8910.github.io/hada-note-lp/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="hada note（はだノート）">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="hada note｜売り込まれずに、肌の理由がわかる。">
+  <meta property="og:description" content="質問に答えるだけの無料「AI肌カルテ」から。勧誘なし・担当制の40代のためのフェイシャルサロン。">
+  <meta property="og:url" content="https://yuraharu8910.github.io/hada-note-lp/">
+  <meta property="og:image" content="https://yuraharu8910.github.io/hada-note-lp/images/ogp.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- スマホのブラウザのバーの色（ページの地色に合わせる） -->
+  <meta name="theme-color" content="#fdfbf9">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <!-- iPhoneで「ホーム画面に追加」したときのアイコン（180×180） -->
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Webフォント：英字＝Cormorant Garamond（肌idのロゴのような細いセリフ）／見出し＝Shippori Mincho／本文＝Zen Kaku Gothic New -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- AI肌カルテ（チャット）の見た目。LP本体のCSSと分けておくと、段階2・3で差し替えやすい -->
+  <link rel="stylesheet" href="chatbot.css">
+
+  <!-- 構造化データ（JSON-LD）：FAQの中身を検索エンジンに正しく伝えるための書き方。
+       ページに表示しているFAQと同じ内容にしておくこと -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "本当に勧誘はありませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "回数券や化粧品の勧誘はしません。2回目以降は11,000円（税込）の都度払いです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "顔写真は必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI肌カルテは質問に答えるだけで、顔写真は不要です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "生活習慣や気分まで聞くのはなぜですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "肌の調子は、睡眠や食事、気持ちの浮き沈み、季節によっても変わるからです。答えたくない質問は飛ばせます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI肌カルテの結果は誰が見ますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "予約された場合のみ、担当者が施術前に確認します。扱いはプライバシーポリシーに記載しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "担当者は変えられますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いつでも変更できます。予約時にお知らせください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "肌トラブル（赤み・かゆみなど）がある場合は？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "施術はお控えいただき、皮膚科の受診をおすすめしています。"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <!-- ページ全体の後ろで漂う、ぼかしたグラデーションの形（肌idの色の玉）
+       position: fixed なのでスクロールしても画面に残り、セクションごとに見え方が変わる -->
+  <div class="blobs" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <header class="header" id="header">
+    <a href="#top" class="logo" aria-label="hada note トップへ">hada note</a>
+    <a href="#reserve" class="header-cta" data-track="cta_header">初回体験を予約</a>
+  </header>
+
+  <main id="top">
+
+    <!-- =========================================================
+         ② FV：中央に大きなロゴ、右に縦書きの一文（肌idのFV構成）
+         写真を使わないので、素材が揃う前から完成形に近い見え方になる
+         ========================================================= -->
+    <section class="fv" id="fv">
+      <p class="fv-vertical" aria-hidden="true">四十代の、肌のかかりつけ。</p>
+      <p class="fv-logo">hada note<span>はだノート</span></p>
+
+      <div class="fv-body">
+        <p class="fv-lead">ハリ不足、疲れ顔。</p>
+        <h1 class="fv-title">その理由、<br>化粧品だけじゃ<br>ないかもしれません。</h1>
+        <p class="fv-sub">今のケア・暮らし・気持ち・季節のつながりから<br>今の肌調子の“理由”がわかる、フェイシャルサロン</p>
+        <button type="button" class="btn btn-primary js-open-karte" data-track="karte_start_fv">
+          無料のAI肌カルテをはじめる<small>約3分</small>
+        </button>
+        <a href="#reserve" class="link-arrow" data-track="cta_fv_reserve">初回体験 60分5,500円を予約する</a>
+        <ul class="badges">
+          <li>勧誘なし</li><li>顔写真なし</li><li>都度払い</li>
+        </ul>
+      </div>
+      <p class="scroll" aria-hidden="true">scroll</p>
+    </section>
+
+    <!-- ③ 共感 -->
+    <section class="section worries">
+      <h2 class="section-title fade-in"><span>こんなこと、ありませんか</span></h2>
+      <ul class="check-list">
+        <li class="fade-in">化粧品を変えても、しっくりこない</li>
+        <li class="fade-in">デパコスを買っても、手応えがない</li>
+        <li class="fade-in">結局、私は何を使えばいいの？</li>
+        <li class="fade-in">買わないといけない雰囲気が苦手</li>
+        <li class="fade-in">エステの体験で勧誘されて、行かなくなった</li>
+      </ul>
+    </section>
+
+    <!-- =========================================================
+         ④ 理由：4つのつながりを、色の玉で見せる
+         ========================================================= -->
+    <section class="section reasons">
+      <!-- 見出しの左右に細い線が伸びる（肌idの「肌の基本チェック」の見出し） -->
+      <h2 class="section-title fade-in"><span>肌の調子を決める、<br>4つのつながり</span></h2>
+      <!-- .pc-grid：PC（1024px以上）でだけ2列に並べるための入れ物 -->
+      <div class="pc-grid">
+      <p class="section-text fade-in">肌は、毎日の暮らしと気持ちを映しています。<br>化粧品だけでは、わからないことがあります。</p>
+      <!-- 色の玉と同じ、ゆがんだ丸で切り抜いた動画（写真がないと「どんなお店？」が伝わらないため） -->
+      <div class="concept-media fade-in">
+        <div class="concept-blob ph">
+          <video autoplay muted loop playsinline preload="none" poster="images/concept01.jpg" aria-hidden="true">
+            <source src="videos/concept01.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <ul class="orbs">
+        <li class="fade-in"><span class="orb o1"></span><b>今のケア</b>使い方・順番・肌質</li>
+        <li class="fade-in"><span class="orb o2"></span><b>暮らし</b>睡眠・食事・画面時間</li>
+        <li class="fade-in"><span class="orb o3"></span><b>気持ち</b>気分の波・ストレス</li>
+        <li class="fade-in"><span class="orb o4"></span><b>季節</b>気温・湿度・変わり目</li>
+      </ul>
+      </div>
+    </section>
+
+    <!-- ⑤ AI肌カルテ -->
+    <section class="section karte" id="karte">
+      <h2 class="section-title fade-in"><span>AI肌カルテ</span></h2>
+      <p class="section-text fade-in">質問にタップで答えるだけ。家で約3分。<br>顔写真はいりません。人と話さずに試せます。</p>
+
+      <ol class="steps">
+        <li class="fade-in"><span>1</span><b>タップで答える</b><p>6つの質問に、選ぶだけで答えます</p></li>
+        <li class="fade-in"><span>2</span><b>理由がわかる</b><p>今の肌調子にいちばん関係していそうなことと、そのつながりを</p></li>
+        <li class="fade-in"><span>3</span><b>今日からできる</b><p>ホームケアと、暮らしの小さな習慣を1つずつ</p></li>
+      </ol>
+
+      <div class="pc-grid">
+      <!-- 結果のイメージ：6つの質問への「回答例」から、理由をつなげて返す見本
+           ありきたりな一般論ではなく「あなたの答えだと、こうつながる」が伝わるように -->
+      <div class="result-card fade-in">
+        <p class="result-head">結果のイメージ<small>（回答例）</small></p>
+
+        <!-- この人の回答（6問のうち4つを抜粋） -->
+        <p class="result-label">あなたの回答</p>
+        <ul class="result-answers">
+          <li>ハリが足りない</li>
+          <li>睡眠5時間以下</li>
+          <li>寝る時刻が1〜2時間ずれる</li>
+          <li>寝る前の画面1時間以上</li>
+          <li>合っているか自信がない</li>
+          <li>今の季節：秋（10月）</li>
+        </ul>
+
+        <!-- いちばん伝えたい「理由」を見出しにする -->
+        <p class="result-title">「ハリ不足」の理由は、化粧品より<mark>“夜の過ごし方”</mark>にあるかもしれません。</p>
+        <p class="result-body">眠るのは5時間以下、寝る時刻が日によってずれる、寝る前に1時間以上画面を見る。肌がゆっくり休める時間が短くなっていそうです。肌のための成長ホルモンは、<b>眠り始めの深い眠り</b>のときに多く出ると言われています。寝る時刻がずれると体内時計が乱れ、深く眠りにくくなります。</p>
+        <p class="result-body">そこに、今の化粧品が合っているか自信がないとのこと。化粧品が合っていないというより、<b>量や塗る場所が、今の肌と季節に合っていない</b>のかもしれません。使うアイテムも量も、肌の状態と季節で変わります。</p>
+        <p class="result-body">今は秋。季節に合わせて、お手入れも少し変えていきましょう。</p>
+
+        <!-- 4つのつながりのうち、どれがどのくらい関係していそうか -->
+        <ul class="result-links" aria-label="4つのつながりの関係の強さ">
+          <li><span>暮らし</span><i style="--w:100%"></i><em>いちばん関係していそう</em></li>
+          <li><span>季節</span><i style="--w:43%"></i><em>少し関係していそう</em></li>
+          <li><span>今のケア</span><i style="--w:80%"></i><em>重なっていそう</em></li>
+          <li><span>気持ち</span><i style="--w:8%"></i><em>今回は小さめ</em></li>
+        </ul>
+
+        <dl class="result-advice">
+          <dt>今の季節（秋）のホームケア</dt>
+          <dd>夏にたまった角質をやさしくオフしてから、今のケアに美容液をプラス。ハリが気になる今こそ、1年でいちばんお手入れを大切にしたい季節です。</dd>
+          <dt>暮らしの小さな習慣</dt>
+          <dd>寝る時刻を、まずは毎日そろえることから。寝る前は部屋を暗くしてスマホを置き、眠り始めをぐっすり眠れる環境に。</dd>
+          <dt>初回体験で、担当者が一緒に見ること</dt>
+          <dd>今の肌状態と、ほおやフェイスラインのハリ感・乾燥の出方。今お使いのアイテムが今の肌に合っているか、量と塗る場所も一緒に確かめます。あわせて、眠りや暮らしのリズムで気になることも伺います。買い足しが必要かどうかも、正直にお伝えします。</dd>
+        </dl>
+        <p class="result-note">※回答例です。結果は今の肌の傾向を知る目安で、感じ方には個人差があります。実際の肌は担当者が確かめます。</p>
+      </div>
+
+      <button type="button" class="btn btn-primary js-open-karte" data-track="karte_start_section">
+        無料のAI肌カルテをはじめる<small>約3分</small>
+      </button>
+      </div>
+    </section>
+
+    <!-- ⑥ 3つの約束（勧誘が不安な人のために、記録より先に置く） -->
+    <section class="section promises">
+      <h2 class="section-title fade-in"><span>3つの約束</span></h2>
+      <ol class="promise-list">
+        <li class="fade-in"><span class="promise-num">01</span><h3>肌の理由がわかる</h3><p>AI肌カルテで、今のケア・暮らし・気持ち・季節のつながりから今の肌調子の理由に気づけます。</p></li>
+        <li class="fade-in"><span class="promise-num">02</span><h3>売り込まない</h3><p>回数券・化粧品の勧誘はしません。料金は最初からすべて表示し、2回目以降も都度払いです。</p></li>
+        <li class="fade-in"><span class="promise-num">03</span><h3>担当者と一緒に変化を見る</h3><p>来店のたびに変化を記録します。担当の変更はいつでもOKです。</p></li>
+      </ol>
+    </section>
+
+    <!-- =========================================================
+         ⑦ 肌の記録：肌idの「肌の記録」グラフの見せ方
+         SVGの線が、画面に入ると左から描かれる（script.js → .is-drawn）
+         数値は「ご自身で感じる肌の調子」の5段階。効果を示すものではないことを明記
+         ========================================================= -->
+    <section class="section record">
+      <h2 class="section-title fade-in"><span>担当者と一緒に、<br>肌の記録をつける</span></h2>
+      <div class="pc-grid">
+      <p class="section-text fade-in">AI肌カルテを担当者が引き継ぎ、来店のたびに記録。<br>「なんとなく」の変化を、一緒に見ていきます。</p>
+
+      <figure class="graph fade-in">
+        <figcaption>肌の調子（ご自身の5段階の感じ方）</figcaption>
+        <svg id="recordGraph" viewBox="0 0 320 180" role="img" aria-label="来店ごとの肌の調子の記録のイメージ。1回目2、2回目3、3回目2.5、4回目3.5、5回目4">
+          <defs>
+            <linearGradient id="lineGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#e8a48f"/><stop offset="1" stop-color="#a99ad6"/>
+            </linearGradient>
+          </defs>
+          <!-- 横の目盛り線（上から5・4・3・2・1） -->
+          <g class="grid"><line x1="30" x2="310" y1="20" y2="20"/><line x1="30" x2="310" y1="50" y2="50"/><line x1="30" x2="310" y1="80" y2="80"/><line x1="30" x2="310" y1="110" y2="110"/><line x1="30" x2="310" y1="140" y2="140"/></g>
+          <g class="axis"><text x="18" y="24">5</text><text x="18" y="54">4</text><text x="18" y="84">3</text><text x="18" y="114">2</text><text x="18" y="144">1</text></g>
+          <!-- 記録の線（pathLength=1 にすると、dasharray を 1 で指定できて描く演出が楽） -->
+          <path class="line" pathLength="1" d="M50 110 L110 80 L170 95 L230 65 L290 50"/>
+          <g class="dots"><circle cx="50" cy="110" r="4"/><circle cx="110" cy="80" r="4"/><circle cx="170" cy="95" r="4"/><circle cx="230" cy="65" r="4"/><circle cx="290" cy="50" r="4"/></g>
+          <g class="axis x"><text x="50" y="166">1回目</text><text x="110" y="166">2回目</text><text x="170" y="166">3回目</text><text x="230" y="166">4回目</text><text x="290" y="166">5回目</text></g>
+        </svg>
+        <p class="graph-memo"><b>3回目のメモ</b>季節の変わり目で乾燥。寝る前のスマホ時間を短くしてみる。</p>
+      </figure>
+      <p class="note">※記録のイメージです。効果を示すものではありません。</p>
+      </div>
+    </section>
+
+    <!-- ⑧ 初回体験 -->
+    <section class="section menu" id="menu">
+      <h2 class="section-title fade-in"><span>初回体験</span></h2>
+      <div class="menu-card fade-in">
+        <div class="menu-image ph">
+          <img src="images/treatment.jpg" alt="フェイシャルの施術の様子" width="1200" height="800" loading="lazy">
+        </div>
+        <div class="menu-info">
+        <h3 class="menu-name">AI肌カルテを引き継いだ<br>フェイシャル 60分</h3>
+        <p class="price"><span class="price-normal">通常 11,000円</span><span class="price-first">初回 <b>5,500</b>円<small>（税込）</small></span></p>
+        <ul class="menu-points">
+          <li>担当者がAI肌カルテを見てから施術</li>
+          <li>回数券・化粧品の勧誘なし</li>
+          <li>2回目以降も11,000円（税込）の都度払い</li>
+        </ul>
+        </div>
+      </div>
+      <ol class="flow">
+        <li class="fade-in"><span>10<small>min</small></span><b>カウンセリング</b></li>
+        <li class="fade-in"><span>40<small>min</small></span><b>フェイシャル</b></li>
+        <li class="fade-in"><span>10<small>min</small></span><b>記録とホームケア</b></li>
+      </ol>
+    </section>
+
+    <!-- ⑨ スタッフ -->
+    <section class="section staff">
+      <h2 class="section-title fade-in"><span>あなたの担当者</span></h2>
+      <div class="pc-grid">
+      <div class="staff-photo ph fade-in">
+        <img src="images/staff.jpg" alt="担当者の写真" width="720" height="900" loading="lazy">
+      </div>
+      <p class="staff-role fade-in">代表・元美容部員</p>
+      <!-- 架空サロンの担当者名。実在の人物を紹介するものではない -->
+      <p class="staff-name fade-in">小林 澄香</p>
+      <p class="staff-message fade-in">化粧品販売12年。一番多く聞かれたのは「結局私は何を使えばいいの？」でした。でも肌の調子は、化粧品だけでは決まりません。まずは、ご自分の肌と暮らしのつながりに気づいてほしいと思っています。</p>
+      <p class="note">担当の変更は、予約のときにいつでもお知らせください。</p>
+      </div>
+    </section>
+
+    <!-- ⑩ 声（※想定） -->
+    <section class="section voices">
+      <h2 class="section-title fade-in"><span>お客さまの声</span></h2>
+      <ul class="voice-list">
+        <li class="fade-in"><p>化粧品のせいだと思っていた乾燥が、睡眠不足と季節の変わり目のせいかもしれないと気づけました。何も勧められなかったので、安心して2回目を予約しました。</p><span>45歳・会社員</span></li>
+        <li class="fade-in"><p>前に通ったエステは勧誘がつらくてやめてしまいました。ここは料金が最初から全部わかって、担当の方がカルテを読んでくれていたので、最初から話が早かったです。</p><span>43歳・パート</span></li>
+      </ul>
+      <p class="note">※想定のお客さまの声です。</p>
+    </section>
+
+    <!-- ⑪ FAQ -->
+    <section class="section faq" id="faq">
+      <h2 class="section-title fade-in"><span>よくあるご質問</span></h2>
+      <div class="faq-list">
+        <details><summary>本当に勧誘はありませんか？</summary><p>回数券や化粧品の勧誘はしません。2回目以降は11,000円（税込）の都度払いです。</p></details>
+        <details><summary>顔写真は必要ですか？</summary><p>AI肌カルテは質問に答えるだけで、顔写真は不要です。</p></details>
+        <details><summary>生活習慣や気分まで聞くのはなぜですか？</summary><p>肌の調子は、睡眠や食事、気持ちの浮き沈み、季節によっても変わるからです。答えたくない質問は飛ばせます。</p></details>
+        <details><summary>AI肌カルテの結果は誰が見ますか？</summary><p>予約された場合のみ、担当者が施術前に確認します。扱いはプライバシーポリシーに記載しています。</p></details>
+        <details><summary>担当者は変えられますか？</summary><p>いつでも変更できます。予約時にお知らせください。</p></details>
+        <details><summary>肌トラブル（赤み・かゆみなど）がある場合は？</summary><p>施術はお控えいただき、皮膚科の受診をおすすめしています。</p></details>
+      </div>
+    </section>
+
+    <!-- ⑫ 最終CTA -->
+    <section class="section reserve" id="reserve">
+      <p class="reserve-vertical" aria-hidden="true">肌と、暮らしを、ノートに。</p>
+      <h2 class="reserve-title">売り込まれずに、<br>肌の理由を<br>知ってみませんか。</h2>
+      <p class="reserve-price">初回体験 60分 <b>5,500</b>円（税込）</p>
+      <a href="https://line.me/" class="btn btn-line" target="_blank" rel="noopener" data-track="cta_line_reserve">LINEで初回体験を予約する</a>
+      <p class="reserve-sub">迷ったら、まずは無料のAI肌カルテから</p>
+      <button type="button" class="btn btn-outline js-open-karte" data-track="karte_start_reserve">AI肌カルテをはじめる（約3分）</button>
+    </section>
+
+    <!-- ⑬ 店舗情報（架空） -->
+    <section class="section access">
+      <h2 class="section-title small"><span>店舗情報</span></h2>
+      <dl class="access-list">
+        <dt>店名</dt><dd>hada note（はだノート）</dd>
+        <dt>住所</dt><dd>〇〇県〇〇市〇〇 1-2-3（架空）</dd>
+        <dt>アクセス</dt><dd>〇〇駅から徒歩3分</dd>
+        <dt>営業時間</dt><dd>10:00〜19:00（最終受付17:30）</dd>
+        <dt>定休日</dt><dd>水曜日</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="logo">hada note</p>
+    <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+    <p class="copy">※このサイトはWebデザインの学習用に制作した架空のサロンです。</p>
+    <small>&copy; 2026 hada note</small>
+  </footer>
+
+  <div class="sticky-cta" id="stickyCta">
+    <button type="button" class="btn btn-primary js-open-karte" data-track="karte_start_sticky">無料AI肌カルテ</button>
+    <a href="#reserve" class="btn btn-sub" data-track="cta_sticky_reserve">初回5,500円で予約</a>
+  </div>
+
+  <dialog class="karte-dialog" id="karteDialog" aria-labelledby="karteTitle">
+    <div class="karte-head">
+      <p id="karteTitle">AI肌カルテ</p>
+      <button type="button" class="karte-close" id="karteClose" aria-label="閉じる">×</button>
+    </div>
+    <!-- 進み具合のバー（chatbot.js が幅を変える） -->
+    <div class="hnk-progress" aria-hidden="true"><span id="hnkProgress"></span></div>
+    <!-- 会話の表示エリア。aria-live="polite"：新しいメッセージを読み上げソフトに伝える -->
+    <div class="karte-body hnk-log" id="hnkLog" aria-live="polite"></div>
+    <!-- 選択肢のボタンが入る場所 -->
+    <div class="hnk-choices" id="hnkChoices"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>

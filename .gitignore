@@ -1,0 +1,9 @@
+# GitHubに上げない（公開しない）ファイル・フォルダ
+# Macが自動で作る隠しファイル
+.DS_Store
+# 元の素材（軽くする前の大きいファイル）
+images/_originals/
+videos/_originals/
+# 採用しなかった案・バックアップ
+proposals-1022/
+バックアップ/
