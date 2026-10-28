@@ -7,3 +7,5 @@ videos/_originals/
 # 採用しなかった案・バックアップ
 proposals-1022/
 バックアップ/
+# Claude Codeの設定（個人の作業用なので公開しない）
+.claude/
