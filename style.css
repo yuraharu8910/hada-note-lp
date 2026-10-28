@@ -305,10 +305,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
   /* FV：左に大きなロゴ、右に文章とボタン（2列） */
   .fv {
-    display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 4rem;
+    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: 4rem;   /* minmax(0, …)：中身の幅で列の幅が変わらないようにする */
     padding: 8rem calc(var(--pc-side) + 3rem) 6rem var(--pc-side); text-align: left;   /* 右は縦書きの分だけ広めに空ける */
   }
   .fv-logo { font-size: clamp(6.5rem, 9vw, 9rem); }   /* clamp(最小, 画面幅に合わせた値, 最大) */
+  /* 登場アニメ（文字間隔が広い状態から縮む）の最初の瞬間に、幅800〜1200pxだと2行に折り返してしまうため、
+     nowrap で折り返しを止める。縮むアニメーションはそのまま残す */
+  .fv-logo { white-space: nowrap; }
   .fv-logo span { font-size: 1.125rem; }
   .fv-body { margin-top: 0; }
   .fv-title { font-size: clamp(2rem, 2.6vw, 2.5rem); }
