@@ -133,7 +133,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .fv-vertical { top: 1.5rem; z-index: 1; }   /* 小さい丸が重なっても、縦書きの文字を前に出す */
   .fv-logo { font-size: 3rem; }
   .fv-logo span { margin-top: .5rem; font-size: .8125rem; }
-  .fv-media { --s: clamp(10.5rem, 31svh, 19.5rem); margin-top: .5rem; }
+  /* ロゴを下げて、丸の上に少し重ねる。top は見た目だけ動かす指定なので、下の文字・ボタンの位置は変わらない */
+  .fv-logo { position: relative; z-index: 2; top: 1.75rem; text-shadow: 0 0 .75rem rgba(253,251,249,.85); }
+  /* 丸を大きくして中央に寄せる。高さ(.82)は丸を大きくした分だけ小さくしてあるので、下の文字・ボタンの位置は変わらない */
+  .fv-media { --s: clamp(11.5rem, min(34svh, 62vw), 21.5rem); height: calc(var(--s) * .82); margin-top: .5rem; }
+  .fv-bubble--lg { top: -.375rem; left: 6%; }
+  .fv-bubble--sm { right: 5%; }
   .fv-body { margin-top: .75rem; }
   .fv-lead { font-size: .875rem; }
   .fv-title { margin-top: .25rem; font-size: 1.375rem; line-height: 1.5; }
@@ -147,6 +152,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .fv { padding-top: 1.25rem; }
   .fv-logo { font-size: 2.5rem; }
   .fv-logo span { margin-top: .25rem; }
+  .fv-logo { top: 1.25rem; }
   .fv-title { font-size: 1.25rem; }
   .fv-sub { display: none; }
   .fv-body .btn { margin-top: 1rem; }
