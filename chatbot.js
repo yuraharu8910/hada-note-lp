@@ -430,6 +430,7 @@
     links.setAttribute("aria-label", "4つのつながりの関係の強さ");
     ["life", "season", "care", "mind"].forEach((k) => {
       const li = el("li");
+      li.dataset.k = k;
       li.appendChild(el("span", "", LINKS[k].name));
       const bar = el("i");
       bar.style.setProperty("--w", `${Math.max(8, Math.round(a.ratio[k] * 100))}%`);
