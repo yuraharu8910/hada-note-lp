@@ -118,20 +118,21 @@
         <p class="fv-logo">hada note<span>はだノート</span></p>
 
         <!-- 4つのつながりの丸動画と同じ見せ方（丸でクロップ＋動画）。
-             動画が未納品の間は poster の仮画像がそのまま表示される。
-             動画が用意できたら source の src を差し替えるだけでよい -->
+             大きい丸＝施術（マッサージ）、小さい丸＝店内。どちらも約8秒を1回だけ再生して、最後の画面で止まる（loop は付けない）。
+             ページを開いたとき・スクロールでFVに戻ってきたときに最初から再生し直す処理は、script.js の「8. FVの丸動画」。
+             poster は動画が読み込まれるまで表示する、動画の1コマ目の画像 -->
         <div class="fv-media">
           <div class="fv-bubble fv-bubble--lg">
             <div class="fv-circle ph">
-              <video autoplay muted loop playsinline preload="none" poster="images/treatment.jpg" aria-hidden="true">
-                <source src="videos/treatment.mp4" type="video/mp4">
+              <video autoplay muted playsinline preload="none" poster="images/fv_treatment.jpg" aria-hidden="true">
+                <source src="videos/fv_treatment.mp4" type="video/mp4">
               </video>
             </div>
           </div>
           <div class="fv-bubble fv-bubble--sm">
             <div class="fv-circle ph">
-              <video autoplay muted loop playsinline preload="none" poster="images/staff.jpg" aria-hidden="true">
-                <source src="videos/staff.mp4" type="video/mp4">
+              <video autoplay muted playsinline preload="none" poster="images/fv_salon.jpg" aria-hidden="true">
+                <source src="videos/fv_salon.mp4" type="video/mp4">
               </video>
             </div>
           </div>

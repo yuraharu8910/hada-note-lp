@@ -127,4 +127,28 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("karteClose").addEventListener("click", () => dialog.close());
   // 黒い背景部分をタップしても閉じる
   dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
+
+  /* ---------------------------------------------------------
+     8. FVの丸動画：約8秒を1回だけ再生して、最後の画面で止まる
+        （HTML側に loop を付けていないので、再生が終わるとそのまま止まる）
+        ページを開いたとき・スクロールでFVに戻ってきたときは、毎回最初から再生し直す
+     --------------------------------------------------------- */
+  const fvVideos = document.querySelectorAll(".fv-media video");
+  if (fvVideos.length && "IntersectionObserver" in window) {
+    const fvPlayObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          // 画面に入った → 0秒に巻き戻して再生する
+          // （play() は端末の設定で断られることがあるので、失敗してもエラーにしない）
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        } else {
+          // 画面から出た → 止めておく。次に入ってきたとき、上の処理で最初から始まる
+          video.pause();
+        }
+      });
+    }, { threshold: 0.4 });   // 動画が4割ほど見えたら「画面に入った」とみなす
+    fvVideos.forEach((video) => fvPlayObserver.observe(video));
+  }
 });
