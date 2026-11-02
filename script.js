@@ -99,20 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ---------------------------------------------------------
-     5. ヘッダー：FVを過ぎたら背景をつける（案D・E）
-     --------------------------------------------------------- */
-  const header = document.getElementById("header");
-  const fv = document.getElementById("fv");
-  if (header && fv) {
-    new IntersectionObserver(([entry]) => {
-      header.classList.toggle("is-scrolled", !entry.isIntersecting);
-    }, { rootMargin: "-56px 0px 0px 0px" }).observe(fv);
-  }
-
-  /* ---------------------------------------------------------
      6. 追従CTA：FVと最終CTAが見えている間は隠す
      --------------------------------------------------------- */
   const sticky = document.getElementById("stickyCta");
+  const fv = document.getElementById("fv");
   const visible = new Set();
   const stickyObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

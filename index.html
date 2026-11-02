@@ -105,11 +105,6 @@
     <span class="blob b3"></span>
   </div>
 
-  <header class="header" id="header">
-    <a href="#top" class="logo" aria-label="hada note トップへ">hada note</a>
-    <a href="#reserve" class="header-cta" data-track="cta_header">初回体験を予約</a>
-  </header>
-
   <main id="top">
 
     <!-- =========================================================
@@ -118,7 +113,32 @@
          ========================================================= -->
     <section class="fv" id="fv">
       <p class="fv-vertical" aria-hidden="true">四十代の、肌のかかりつけ。</p>
-      <p class="fv-logo">hada note<span>はだノート</span></p>
+
+      <div class="fv-visual">
+        <p class="fv-logo">hada note<span>はだノート</span></p>
+
+        <!-- 4つのつながりの丸動画と同じ見せ方（丸でクロップ＋動画）。
+             動画が未納品の間は poster の仮画像がそのまま表示される。
+             動画が用意できたら source の src を差し替えるだけでよい -->
+        <div class="fv-media">
+          <div class="fv-bubble fv-bubble--lg">
+            <span class="fv-blob fv-blob--a" aria-hidden="true"></span>
+            <div class="fv-circle ph">
+              <video autoplay muted loop playsinline preload="none" poster="images/treatment.jpg" aria-hidden="true">
+                <source src="videos/treatment.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="fv-bubble fv-bubble--sm">
+            <span class="fv-blob fv-blob--b" aria-hidden="true"></span>
+            <div class="fv-circle ph">
+              <video autoplay muted loop playsinline preload="none" poster="images/staff.jpg" aria-hidden="true">
+                <source src="videos/staff.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="fv-body">
         <p class="fv-lead">ハリ不足、疲れ顔。</p>
