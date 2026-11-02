@@ -375,8 +375,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     --s: clamp(22rem, 36vw, 36rem);   /* 1024pxで約23rem、1440pxで約32rem */
     position: absolute; inset: 0; height: auto; margin: 0; pointer-events: none;
   }
-  .fv-bubble--lg { top: 6.5rem; left: calc(var(--s) * -.03); }
-  .fv-bubble--sm { right: calc(var(--s) * -.02); bottom: 4.5rem; }
+  .fv-bubble--lg { top: 6.5rem; left: calc(var(--s) * .07); }
+  .fv-bubble--sm { right: calc(var(--s) * .07); bottom: 4.5rem; }
 
   /* 共感：2列 */
   .check-list { grid-template-columns: 1fr 1fr; column-gap: 3rem; max-width: 52rem; margin-inline: auto; }
