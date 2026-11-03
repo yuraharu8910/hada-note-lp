@@ -137,13 +137,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .fv-logo { position: relative; z-index: 2; top: .75rem; text-shadow: 0 0 .75rem rgba(253,251,249,.85); }
   /* 丸の大きさ・形・重なりは、前のFVと同じ（--s=19.5rem、左上に大、右下に小）。
      margin-top をマイナスにして、丸をロゴの下に潜り込ませて上へ持ち上げる */
-  .fv-media { --s: clamp(15rem, min(46svh, 72vw), 26rem); margin-top: .25rem; }   /* 72vw = 画面幅に合わせて丸も大きくなる（幅が変わっても重なりが保たれる） */
+  .fv-media { --s: clamp(15rem, min(46svh, 75vw), 26rem); margin-top: .25rem; }   /* 75vw = 画面幅に合わせて丸も大きくなる（幅が変わっても重なりが保たれる） */
   .fv-bubble--lg { left: -1%; }
-  .fv-bubble--sm { right: 3%; }   /* 数字を増やすと小さい丸が左（中央）へ寄って、大きい丸との重なりが増える */
-  .fv-body { margin-top: .5rem; }
+  .fv-bubble--sm { right: 0%; }   /* 数字を増やすと小さい丸が左（中央）へ寄って、大きい丸との重なりが増える */
+  .fv-body { margin-top: 1rem; }
   .fv-lead { font-size: .875rem; }
-  .fv-title { margin-top: .25rem; font-size: 1.375rem; line-height: 1.4; }
-  .fv-sub { margin: .375rem 0 .625rem; font-size: .75rem; line-height: 1.65; }
+  .fv-title { margin-top: .5rem; font-size: 1.375rem; line-height: 1.5; }
+  .fv-sub { margin: .75rem 0 1.25rem; font-size: .75rem; line-height: 1.65; }
   .link-arrow { margin-top: 0; }
   .badges { margin-top: .5rem; }
   .scroll { display: none; }   /* ボタンが最初から見えるので「scroll」の合図は不要 */
