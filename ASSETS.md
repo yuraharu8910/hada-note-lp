@@ -27,6 +27,7 @@
 | images/treatment.jpg | 3:2 | フェイシャルの施術の手元。顔ははっきり写さない、清潔感のある個室 |
 | images/fv_treatment.jpg | 1:1 | fv_treatment.mp4 の1コマ目（動画が読み込まれるまで表示する画像） |
 | images/fv_salon.jpg | 1:1 | fv_salon.mp4 の1コマ目（動画が読み込まれるまで表示する画像） |
+| images/exterior.jpg | 16:9（1200×675） | 店舗の外観。木の扉・小さな看板「hada note」・窓のカーテン・植物。店舗情報に表示 |
 | images/staff.jpg | 6:7 | 40代のエステティシャン（白い制服）の上半身、やさしい表情。ゆがんだ丸で切り抜くので顔は中央に |
 | images/ogp.jpg | 1200×630 | SNSでシェアされたときの画像（白地＋色の玉＋「hada note」のロゴ） |
 | images/favicon.png | 512×512 | ブラウザのタブのアイコン（色の玉1つ、など） |

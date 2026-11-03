@@ -201,7 +201,10 @@
         <li class="fade-in"><span>1</span><b>タップで答える</b><p>6つの質問に、選ぶだけで答えます</p></li>
         <li class="fade-in"><span>2</span><b>理由がわかる</b><p>今の肌調子にいちばん関係していそうなことと、そのつながりを</p></li>
         <li class="fade-in"><span>3</span><b>今日からできる</b><p>ホームケアと、暮らしの小さな習慣を1つずつ</p></li>
+        <!-- 4：カルテの先にある「来店」。家でわかった“理由”を、店舗で担当者が実際の肌で確かめる -->
+        <li class="fade-in step-store"><span>4</span><b>店舗で、<br>くわしく肌をみてケア</b><p>カルテをもとに、担当者が実際の肌とお話をうかがい、ケアを一緒に考えます</p></li>
       </ol>
+      <p class="steps-next fade-in"><a href="#menu" class="link-arrow" data-track="cta_karte_to_menu">初回体験 60分5,500円の内容を見る</a></p>
 
       <div class="pc-grid">
       <!-- 結果のイメージ：6つの質問への「回答例」から、理由をつなげて返す見本
@@ -257,8 +260,10 @@
       <ol class="promise-list">
         <li class="fade-in"><span class="promise-num">01</span><h3>肌の理由がわかる</h3><p>AI肌カルテで、今のケア・暮らし・気持ち・季節のつながりから今の肌調子の理由に気づけます。</p></li>
         <li class="fade-in"><span class="promise-num">02</span><h3>売り込まない</h3><p>回数券・化粧品の勧誘はしません。料金は最初からすべて表示し、2回目以降も都度払いです。</p></li>
-        <li class="fade-in"><span class="promise-num">03</span><h3>担当者と一緒に変化を見る</h3><p>来店のたびに変化を記録します。担当の変更はいつでもOKです。</p></li>
+        <li class="fade-in"><span class="promise-num">03</span><h3>担当者と一緒に変化を見る</h3><p>来店のたびに、担当者が肌の状態とお話をうかがい、その日のご自身の感覚を5段階で一緒に記録します。前回と見比べながら、ホームケアや暮らしの習慣を少しずつ整えていきます。担当の変更はいつでもOKです。気を使わず、ご相談ください。</p></li>
       </ol>
+      <!-- 03から、すぐ下の「肌の記録」セクションへつなぐ一文 -->
+      <p class="promise-bridge fade-in"><a href="#record">では、一緒に、どう記録していくのでしょう。</a></p>
     </section>
 
     <!-- =========================================================
@@ -266,7 +271,7 @@
          SVGの線が、画面に入ると左から描かれる（script.js → .is-drawn）
          数値は「ご自身で感じる肌の調子」の5段階。効果を示すものではないことを明記
          ========================================================= -->
-    <section class="section record">
+    <section class="section record" id="record">
       <h2 class="section-title fade-in"><span>担当者と一緒に、<br>肌の記録をつける</span></h2>
       <div class="pc-grid">
       <p class="section-text fade-in">AI肌カルテを担当者が引き継ぎ、来店のたびに記録。<br>「なんとなく」の変化を、一緒に見ていきます。</p>
@@ -368,6 +373,11 @@
     <!-- ⑬ 店舗情報（架空） -->
     <section class="section access">
       <h2 class="section-title small"><span>店舗情報</span></h2>
+      <!-- 店舗の写真（初めての来店でも安心できるように、外観と店内を見せる。丸く切り抜いて、少し重ねて表示。文字の説明は付けない） -->
+      <ul class="access-photos">
+        <li class="fade-in"><div class="ph"><img src="images/exterior.jpg" alt="hada noteの外観。木の扉と小さな看板、窓のカーテン、植物のある入り口" width="1200" height="675" loading="lazy"></div></li>
+        <li class="fade-in"><div class="ph"><img src="images/fv_salon.jpg" alt="店内の様子。窓からやわらかい光が入り、木のカウンターと植物がある" width="720" height="720" loading="lazy"></div></li>
+      </ul>
       <dl class="access-list">
         <dt>店名</dt><dd>hada note（はだノート）</dd>
         <dt>住所</dt><dd>〇〇県〇〇市〇〇 1-2-3（架空）</dd>
